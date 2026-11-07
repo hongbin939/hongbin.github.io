@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="dsh-design" content="web">
+<meta name="description" content="洪彬的个人主页。联系方式：hb3258828525@my.swjtu.edu.cn">
+<title>洪彬 · 个人主页</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%232b4a73'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3E%E6%B4%AA%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: oklch(0.972 0.006 85);
+    --surface: oklch(0.996 0.002 85);
+    --text: oklch(0.23 0.02 250);
+    --muted: oklch(0.50 0.014 250);
+    --line: oklch(0.90 0.008 85);
+    --primary: oklch(0.40 0.085 250);
+    --primary-ink: oklch(0.985 0.004 250);
+    --radius-md: 12px;
+    --radius-pill: 999px;
+    --font-sans: "Inter", "PingFang SC", "HarmonyOS Sans SC", "MiSans",
+      "Microsoft YaHei", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: oklch(0.22 0.012 250);
+      --surface: oklch(0.27 0.014 250);
+      --text: oklch(0.95 0.006 85);
+      --muted: oklch(0.73 0.012 250);
+      --line: oklch(0.35 0.012 250);
+      --primary: oklch(0.81 0.085 240);
+      --primary-ink: oklch(0.22 0.02 250);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    min-height: 100vh;
+    width: min(100%, 880px);
+    margin-inline: auto;
+    padding: clamp(24px, 5vw, 48px) clamp(20px, 6vw, 64px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(32px, 6vh, 64px);
+  }
+
+  /* ---------- 顶栏 ---------- */
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .mark {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: var(--primary-ink);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-sub {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .gh {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 4px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 180ms var(--ease);
+  }
+
+  .gh:hover { color: var(--text); }
+
+  .gh svg { flex: none; }
+
+  /* ---------- 主体 ---------- */
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(20px, 3vh, 32px);
+    padding-block: clamp(16px, 4vh, 48px);
+  }
+
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    max-width: 200px;
+    background: var(--line);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(60px, 12vw, 104px);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+
+  .lead {
+    margin: 0;
+    max-width: 26em;
+    font-size: clamp(15px, 2.2vw, 17px);
+    line-height: 1.7;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  /* ---------- 邮箱 ---------- */
+  .mail {
+    margin-top: clamp(4px, 1vh, 12px);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    max-width: 100%;
+  }
+
+  .mail a {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 2.4vw, 17px);
+    line-height: 1.5;
+    color: var(--primary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    padding-block: 4px;
+  }
+
+  .mail a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .copy {
+    margin-left: auto;
+    flex: none;
+    min-height: 44px;
+    min-width: 76px;
+    padding: 0 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 180ms var(--ease), color 180ms var(--ease),
+      background-color 180ms var(--ease);
+  }
+
+  .copy:hover { border-color: var(--primary); color: var(--primary); }
+
+  .copy[data-done="true"] {
+    border-color: transparent;
+    background: var(--primary);
+    color: var(--primary-ink);
+  }
+
+  /* ---------- 页脚 ---------- */
+  footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: clamp(16px, 3vh, 24px);
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  footer span:last-child { text-align: right; }
+
+  /* ---------- 焦点 / 动效 ---------- */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  @media (max-width: 430px) {
+    .mail { flex-direction: column; align-items: stretch; }
+    .mail a { text-align: center; }
+    .copy { margin-left: 0; width: 100%; }
+    footer { flex-direction: column; gap: 4px; }
+    footer span:last-child { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <a class="brand" href="./">
+      <span class="mark" aria-hidden="true">洪</span>
+      <span class="brand-text">
+        <span class="brand-name">洪彬</span>
+        <span class="brand-sub">Personal&nbsp;Page</span>
+      </span>
+    </a>
+    <a class="gh" href="https://github.com/hongbin939" target="_blank" rel="noopener">
+      GitHub
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 17 17 7M9 7h8v8"/>
+      </svg>
+    </a>
+  </header>
+
+  <main>
+    <p class="kicker">Hong Bin</p>
+    <h1>洪彬</h1>
+    <p class="lead">欢迎来信交流。邮件通常会在当天回复。</p>
+
+    <div class="mail">
+      <a href="mailto:hb3258828525@my.swjtu.edu.cn">hb3258828525@my.swjtu.edu.cn</a>
+      <button class="copy" type="button" id="copyBtn" data-email="hb3258828525@my.swjtu.edu.cn">
+        复制邮箱
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <span>© <span id="year">2026</span> 洪彬</span>
+    <span>GitHub Pages</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copyBtn');
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    function done() {
+      var old = btn.textContent;
+      btn.textContent = '已复制';
+      btn.setAttribute('data-done', 'true');
+      setTimeout(function () {
+        btn.textContent = old;
+        btn.removeAttribute('data-done');
+      }, 1600);
+    }
+
+    function fallback(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* 忽略 */ }
+      document.body.removeChild(ta);
+    }
+
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var email = btn.getAttribute('data-email') || '';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, function () { fallback(email); });
+      } else {
+        fallback(email);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
